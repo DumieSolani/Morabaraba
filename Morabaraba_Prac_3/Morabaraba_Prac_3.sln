@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Morabaraba_Prac_3", "Morabaraba_Prac_3\Morabaraba_Prac_3.fsproj", "{216A6D2F-B0F0-45B1-89AF-5807F8D16653}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{216A6D2F-B0F0-45B1-89AF-5807F8D16653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216A6D2F-B0F0-45B1-89AF-5807F8D16653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216A6D2F-B0F0-45B1-89AF-5807F8D16653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216A6D2F-B0F0-45B1-89AF-5807F8D16653}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {215E7FB4-3023-4D04-B343-AAB72A97BDF7}
+	EndGlobalSection
+EndGlobal
