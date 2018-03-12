@@ -25,3 +25,12 @@ C:\Users\g16s2145\Downloads\Morabaraba_Prac_3-20180311T183909Z-001\Morabaraba_Pr
 C:\Users\g16s2145\Downloads\Morabaraba_Prac_3-20180311T183909Z-001\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\FSharp.Core.xml
 C:\Users\g16s2145\Downloads\Morabaraba_Prac_3-20180311T183909Z-001\Morabaraba_Prac_3\Morabaraba_Prac_3\obj\Debug\Morabaraba_Prac_3.exe
 C:\Users\g16s2145\Downloads\Morabaraba_Prac_3-20180311T183909Z-001\Morabaraba_Prac_3\Morabaraba_Prac_3\obj\Debug\Morabaraba_Prac_3.pdb
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\Morabaraba_Prac_3.exe.config
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\Morabaraba_Prac_3.XML
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\Morabaraba_Prac_3.exe
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\Morabaraba_Prac_3.pdb
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\FSharp.Core.dll
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\System.ValueTuple.dll
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\bin\Debug\FSharp.Core.xml
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\obj\Debug\Morabaraba_Prac_3.exe
+J:\morabaraba\Morabaraba_Prac_3\Morabaraba_Prac_3\obj\Debug\Morabaraba_Prac_3.pdb

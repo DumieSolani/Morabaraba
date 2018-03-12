@@ -45,21 +45,27 @@ let drawBoardGame (Board(rowA,rowB,rowC,rowD,rowE,rowF,rowG))=
         |Y -> 'y'
         |Blank -> 'o'
     (*System.Console.BackgroundColor *)
-    printfn "            1  2   3        4        5   6  7"
+    printfn "                      1  2   3        4        5   6  7"
     let (x,y,z) = rowA
-    printfn "          a %c---------------%c---------------%c" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                    a %c---------------%c---------------%c " (reMapCell x) (reMapCell y) (reMapCell z)
     let (x,y,z) = rowB
-    printfn "          b |  %c------------%c------------%c  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                      |\              |              /|    "
+    printfn "                    b |  %c------------%c------------%c  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                      |   \           |           /   |  "
     let (x,y,z) = rowC
-    printfn "          c |  |   %c--------%c--------%c   |  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                    c |  |   %c--------%c--------%c   |  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                      |  |   |        |          |    |  | "
     let (a,b,c,d,e,f) = rowD
-    printfn "          d %c--%c---%c                 %c---%c--%c" (reMapCell a) (reMapCell b) (reMapCell c) (reMapCell d) (reMapCell e) (reMapCell f)
+    printfn "                    d %c--%c---%c                 %c---%c--%c" (reMapCell a) (reMapCell b) (reMapCell c) (reMapCell d) (reMapCell e) (reMapCell f)
+    printfn "                      |  |   |        |      "
     let (x,y,z) = rowE
-    printfn "          e |  |   %c--------%c--------%c   |  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                    e |  |   %c--------%c--------%c   |  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                      |   /           |          \    |   "
     let (x,y,z) = rowF
-    printfn "          f |  %c------------%c------------%c  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                    f |  %c------------%c------------%c  |" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                      | /             |             \ |    "
     let (x,y,z) = rowG
-    printfn "          g %c---------------%c---------------%c" (reMapCell x) (reMapCell y) (reMapCell z)
+    printfn "                    g %c---------------%c---------------%c" (reMapCell x) (reMapCell y) (reMapCell z)
 
 let isBlank board position = 
     
