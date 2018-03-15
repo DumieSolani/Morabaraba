@@ -123,148 +123,6 @@ let currentStatus (list:int list) indx =
     match list.[indx] with
     | 0 -> true  //if the given index is O then it means this is a new Mill that is being formed
     | _ -> false //if the given index is 1 then it means  then it means that the given position is an old Mill
-
-
-
-(*let checkX_mill board (list:int list)=
-
-    let (Board (r1,r2,r3,r4,r5,r6,r7)) = board
-    let a1 = match r1,r2,r3,r4,r5,r6,r7  with 
-             |(X,X,X),_,_,_,_,_,_ -> currentStatus list 0 
-             | _ -> false
-
-    let a2 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,(X,X,X),_,_,_,_,_ -> currentStatus list 1            
-             | _ -> false
-    let a3 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,(X,X,X),_,_,_,_ -> currentStatus list  2            
-             | _ -> false
-    let a4 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,(X,X,X,_,_,_),_,_,_ -> currentStatus list  3            
-             | _ -> false
-    let a5 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,(_,_,_,X,X,X),_,_,_ -> currentStatus list  4             
-             | _ -> false
-    let a6 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,(X,X,X),_,_ -> currentStatus list  5             
-             | _ -> false
-    let a7 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,_,(X,X,X),_ -> currentStatus list  6            
-             | _ -> false
-    let a8 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,_,_,(X,X,X) -> currentStatus list  7
-             | _ -> false
-    
-    match (a1 || a2 || a3 || a4 || a5 || a6|| a7 || a8) with
-    | true -> true
-    | _ -> false        
-
-
-let checkX1_mill board=
-    let (Board (r1,r2,r3,r4,r5,r6,r7)) = board
-    match r1,r2,r3,r4,r5,r6,r7 with 
-    |(X,_,_),_,_,(X,_,_,_,_,_),_,_,(X,_,_)
-    |_,(X,_,_),_,(_,X,_,_,_,_),_,(X,_,_),_
-    |_,_,(X,_,_),(_,_,X,_,_,_),(X,_,_),_,_
-    |(_,X,_),(_,X,_),(_,X,_),_,_,_,_
-    |_,_,_,_,(_,X,_),(_,X,_),(_,X,_)->true
-    |_-> false
-
-let checkX3_mill board=
-    let (Board (r1,r2,r3,r4,r5,r6,r7)) = board
-    match r1,r2,r3,r4,r5,r6,r7 with
-    |_,_,(_,_,X),(_,_,_,X,_,_),(_,_,X),_,_
-    |_,(_,_,X),_,(_,_,_,_,X,_),_,(_,_,X),_
-    |(_,_,X),_,_,(_,_,_,_,_,X),_,_,(_,_,X)
-    |(X,_,_),(X,_,_),(X,_,_),_,_,_,_ 
-    |(_,_,X),(_,_,X),(_,_,X),_,_,_,_  
-    |_,_,_,_,(X,_,_),(X,_,_),(X,_,_)   
-    |_,_,_,_,(_,_,X),(_,_,X),(_,_,X) ->true
-    |_-> false
-    
-let updateList (list:int list) index  =      
-    let rec someF list counter out =
-        match list with
-        |[] -> List.rev out
-        |head::tail -> match counter=index with
-                       | true -> match list.Head with 
-                                    |0 -> someF tail (counter + 1) (1::out) 
-                                    |_ -> someF tail (counter + 1) (head::out)
-                       | _ -> someF tail (counter + 1) (head::out)
-            
-    someF list 0  []
-
-let updateX_mill_list board (list:int list) =
-    let (Board (r1,r2,r3,r4,r5,r6,r7)) = board
-    let a1 = match r1,r2,r3,r4,r5,r6,r7  with 
-             |(X,X,X),_,_,_,_,_,_ -> updateList list 0
-             | _ -> list
-
-    let a2 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,(X,X,X),_,_,_,_,_ -> updateList a1 1
-             | _ -> a1
-             
-    let a3 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,(X,X,X),_,_,_,_ -> updateList a2  2
-             | _ -> a2
-
-    let a4 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,(X,X,X,_,_,_),_,_,_ -> updateList a2  3
-             | _ -> a3
-        
-    let a5 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,(_,_,_,X,X,X),_,_,_ -> updateList a2  4
-             | _ -> a4
-
-    let a6 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,(X,X,X),_,_ -> updateList a2  5
-             | _ -> a5
-
-    let a7 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,_,(X,X,X),_ -> updateList a2  6
-             | _ -> a6
-
-    let a8 = match r1,r2,r3,r4,r5,r6,r7  with
-             |_,_,_,_,_,_,(X,X,X) -> updateList a2  7
-             | _ -> a7
-
-    a8
-
-let checkY_mill board =    
-    let (Board(r1,r2,r3,r4,r5,r6,r7)) =board
-    match r1,r2,r3,r4,r5,r6,r7 with
-    |(Y,Y,Y),_,_,_,_,_,_
-    |_,(Y,Y,Y),_,_,_,_,_
-    |_,_,(Y,Y,Y),_,_,_,_
-    |_,_,_,(Y,Y,Y,_,_,_),_,_,_
-    |_,_,_,(_,_,_,Y,Y,Y),_,_,_
-    |_,_,_,_,(Y,Y,Y),_,_
-    |_,_,_,_,_,(Y,Y,Y),_
-    |_,_,_,_,_,_,(Y,Y,Y)->true
-    |_-> false
-
-let checkY2_mill board =
-    let (Board(r1,r2,r3,r4,r5,r6,r7)) =board
-    match r1,r2,r3,r4,r5,r6,r7 with
-    |(Y,_,_),_,_,(Y,_,_,_,_,_),_,_,(Y,_,_)
-    |_,(Y,_,_),_,(_,Y,_,_,_,_),_,(Y,_,_),_
-    |_,_,(Y,_,_),(_,_,Y,_,_,_),(Y,_,_),_,_
-    |(_,Y,_),(_,Y,_),(_,Y,_),_,_,_,_
-    |_,_,_,_,(_,Y,_),(_,Y,_),(_,Y,_)
-    |_-> false
-
-let checkY3_mill board =
-    let (Board(r1,r2,r3,r4,r5,r6,r7)) =board
-    match r1,r2,r3,r4,r5,r6,r7 with
-    |_,_,(_,_,Y),(_,_,_,Y,_,_),(_,_,Y),_,_
-    |_,(_,_,Y),_,(_,_,_,_,Y,_),_,(_,_,Y),_
-    |(_,_,Y),_,_,(_,_,_,_,_,Y),_,_,(_,_,Y)
-    |(Y,_,_),(Y,_,_),(Y,_,_),_,_,_,_ 
-    |(_,_,Y),(_,_,Y),(_,_,Y),_,_,_,_
-    |_,_,_,_,(Y,_,_),(Y,_,_),(Y,_,_) 
-    |_,_,_,_,(_,_,Y),(_,_,Y),(_,_,Y) -> true
-    |_-> false
-*)
 let updateList (list:int list) index  =      
     let rec someF list counter out =
         match list with
@@ -437,16 +295,7 @@ let updateY_mill_list board (list:int list) =
               |_,_,_,_,(_,_,Y),(_,_,Y),(_,_,Y) -> updateList a12 19            
               | _ -> a19 
     updateList a20 20
-let changeMillState (list: int list) indx =
-    match list.[indx] with 
-    |0 -> 1
-    |_ -> 1 //this is when the state of the board is already in Mill for that particular position
 
-
-let currentStatus (list:int list) indx =
-    match list.[indx] with
-    | 0 -> true  //if the given index is O then it means this is a new Mill that is being formed
-    | _ -> false //if the given index is 1 then it means  then it means that the given position is an old Mill
 
 
 
@@ -725,7 +574,7 @@ let makeMove (player: Cell) (Board(r1,r2,r3,r4,r5,r6,r7)) position list list1=
         Board data 
     gameCheck newBoard list list1
     
-let numCows = { X1=3; Y1=3 } //Maximum number of cows for each player to place
+let numCows = { X1=12; Y1=12} //Maximum number of cows for each player to place
 let xMovesList = []
 let yMovesList = []
 
@@ -791,7 +640,7 @@ let rec runPlacementPhase (Player : Cell) board numCows eraTxt  xMovesList yMove
                     |X -> let new_Xmoves = addMove xMovesList n
                           match checkCowAvailable Player numCows with 
                           |Some Cows -> 
-                              match (makeMove Player board playerChoice list) with 
+                              match (makeMove Player board playerChoice list list1) with 
                               |Ongoing board -> runPlacementPhase (swapPlayer Player) board Cows "" new_Xmoves yMovesList list list1
                               |Mill (currentPlayer,board)-> 
                                   let newboardX = updateList list
@@ -811,7 +660,7 @@ let rec runPlacementPhase (Player : Cell) board numCows eraTxt  xMovesList yMove
                     |Y -> let new_YMoves = addMove yMovesList n
                           match checkCowAvailable Player numCows with 
                           |Some Cows -> 
-                              match (makeMove Player board playerChoice list) with 
+                              match (makeMove Player board playerChoice list list1) with 
                               |Ongoing board -> runPlacementPhase (swapPlayer Player) board Cows ""  xMovesList new_YMoves list list1
                               |Mill (currentPlayer,board)-> 
                                   
@@ -822,7 +671,7 @@ let rec runPlacementPhase (Player : Cell) board numCows eraTxt  xMovesList yMove
                                   match isValidInput removeThis with
                                   |true -> 
                                       let choice = removeThis.[0], removeThis.[1]                                             
-                                      runPlacementPhase (swapPlayer Player) (removeCow (*Player*) board choice) Cows ""  list xMovesList new_YMoves
+                                      runPlacementPhase (swapPlayer Player) (removeCow (*Player*) board choice) Cows "" xMovesList new_YMoves list list1
                               |Draw -> Drawn
                                   //printf "Draw!!!"   
                           |None ->                                     
@@ -1038,14 +887,14 @@ let rec runGame currentPlayer board  xMovesList yMovesList list list1 =
         drawBoardGame board
         printf "You have exhausted the number of cows you can place\n"
         printf "Enter coodinates of Cow to move \n"
-        run board currentPlayer list xMovesList yMovesList list list1
+        run board currentPlayer  xMovesList yMovesList list list1
     
 [<EntryPoint>]
 let main argv = 
     Console.ForegroundColor <- ConsoleColor.Yellow
     let xMill_List = [0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0]
     let yMill_List = [0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0]
-    runGame X blankBoard xMill_List xMovesList yMovesList xMill_List yMill_List
+    runGame X blankBoard  xMovesList yMovesList xMill_List yMill_List
     
     System.Console.ReadLine()
    
